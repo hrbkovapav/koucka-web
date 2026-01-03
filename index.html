@@ -646,6 +646,44 @@
                 gap: 40px;
             }
         }
+        /* HERO – full width background */
+.hero--bg {
+    min-height: 100vh;
+    background-image: url("hero img.png");
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.92) 0%,
+        rgba(255,255,255,0.75) 40%,
+        rgba(255,255,255,0.3) 65%,
+        rgba(255,255,255,0) 100%
+    );
+    z-index: 0;
+}
+
+.hero--bg .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    grid-template-columns: 1fr;
+}
+
+.hero--bg .hero-text {
+    max-width: 520px;
+    padding-left: 0;
+}
     </style>
 </head>
 <body>
