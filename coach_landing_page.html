@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Život Podle Tebe | Osobní Koučink</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #8c7060;
+        }
+
+        .nav-links a {
+            color: #333333;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8c7060;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-text {
+            text-align: left;
+            padding-left: 60px;
+        }
+
+        .hero-text h1 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: #8c7060;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            margin-bottom: 50px;
+            color: #666666;
+            line-height: 1.8;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(140, 112, 96, 0.2);
+            object-fit: cover;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 48px;
+            background-color: #8c7060;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(140, 112, 96, 0.3);
+            background-color: #7a6254;
+        }
+
+        /* Maybe Section */
+        .maybe-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+        }
+
+        .maybe-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .maybe-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #333333;
+        }
+
+        .maybe-text p {
+            font-size: 19px;
+            line-height: 1.8;
+            color: #666666;
+            margin-bottom: 25px;
+        }
+
+        .maybe-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* How it Works Section */
+        .how-it-works {
+            padding: 120px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 80px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 30px;
+        }
+
+        .step-icon svg {
+            transition: transform 0.3s;
+        }
+
+        .step:hover .step-icon svg {
+            transform: scale(1.1);
+        }
+
+        .step h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .step p {
+            color: #666666;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 0;
+            background-color: #fafafa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8c7060;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .about-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+
+        .about-description p {
+            color: #666666;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .about-list {
+            margin: 35px 0;
+            padding: 30px;
+            background-color: #ffffff;
+            border-left: 3px solid #8c7060;
+            border-radius: 8px;
+        }
+
+        .about-list p {
+            color: #333333;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .about-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .about-list ul li {
+            color: #666666;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .about-list ul li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #8c7060;
+            border-radius: 50%;
+            background-color: transparent;
+        }
+        
+        .about-list ul li:after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 13px;
+            width: 3px;
+            height: 3px;
+            background-color: #8c7060;
+            border-radius: 50%;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-photo {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(140, 112, 96, 0.15);
+            object-fit: cover;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 120px 0;
+            background-color: #ffffff;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial {
+            background-color: #fafafa;
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(140, 112, 96, 0.1);
+        }
+
+        .testimonial-quote {
+            margin-bottom: 25px;
+        }
+
+        .testimonial-text {
+            color: #666666;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            border-top: 1px solid rgba(140, 112, 96, 0.2);
+            padding-top: 20px;
+        }
+
+        .author-name {
+            font-weight: 700;
+            color: #333333;
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .author-role {
+            color: #8c7060;
+            font-size: 14px;
+        }
+
+        @media (max-width: 968px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .about-title {
+                font-size: 36px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 120px 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(140, 112, 96, 0.05) 50%, transparent 100%);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit {
+            padding: 40px;
+            border: 1px solid rgba(140, 112, 96, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s;
+            background: #ffffff;
+        }
+
+        .benefit:hover {
+            border-color: #8c7060;
+            transform: translateY(-5px);
+            background: rgba(140, 112, 96, 0.05);
+            box-shadow: 0 10px 30px rgba(140, 112, 96, 0.1);
+        }
+
+        .benefit-icon {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .benefit-icon svg {
+            transition: transform 0.3s;
+        }
+
+        .benefit:hover .benefit-icon svg {
+            transform: scale(1.1);
+        }
+
+        .benefit h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .benefit p {
+            color: #666666;
+            font-size: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 0;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border: 1px solid rgba(140, 112, 96, 0.2);
+            border-radius: 10px;
+            color: #333333;
+            font-size: 16px;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #8c7060;
+            background-color: #ffffff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 18px;
+            background-color: #8c7060;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(140, 112, 96, 0.3);
+            background-color: #7a6254;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(140, 112, 96, 0.2);
+            background-color: #fafafa;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-section h4 {
+            color: #8c7060;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+        }
+
+        .footer-contact a,
+        .footer-section a {
+            color: #666666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-contact a:hover,
+        .footer-section a:hover {
+            color: #8c7060;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-icons svg {
+            display: block;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(140, 112, 96, 0.1);
+            color: #999999;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            padding: 20px;
+            background-color: rgba(140, 112, 96, 0.1);
+            border: 1px solid #8c7060;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #8c7060;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-text {
+                text-align: center;
+                padding-left: 0;
+            }
+
+            .hero-text h1 {
+                font-size: 40px;
+            }
+
+            .hero-text p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Život Podle Tebe</div>
+            <div class="nav-links">
+                <a href="#kontakt">Kontakt</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Žij život, který&nbsp;<span>miluješ</span></h1>
+                <p>Pomohu ti najít sebedůvěru a cestu k tvým skutečným cílům. Společně vytvoříme plán, jak žít autentický život naplněný smyslem.</p>
+                <a href="#kontakt" class="cta-button">Začni ještě dnes</a>
+            </div>
+            <div class="hero-image">
+                <img src="image_2.jpg" alt="Bára - Osobní kouč">
+            </div>
+        </div>
+    </section>
+
+    <section class="maybe-section">
+        <div class="container">
+            <div class="maybe-content">
+                <h2 class="maybe-title">Možná jsi tady, protože…</h2>
+                <div class="maybe-text">
+                    <p>Máš pocit, že tvůj život funguje „na oko", ale uvnitř už ne. Děláš správné věci, plníš očekávání – a přesto se někde po cestě vytratil klid, směr nebo radost.</p>
+                    <p>Možná stojíš na místě, kde víš, že něco potřebuje změnu, ale ještě nemáš jasno v tom co. Možná jsi unavená z přemýšlení dokola a hledáš prostor, kde můžeš věci konečně pojmenovat nahlas. A možná jen cítíš, že už nechceš dál jet na automat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefity" class="benefits">
+        <div class="container">
+            <h2 class="section-title">Co získáš</h2>
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32 8L36 20L48 24L36 28L32 40L28 28L16 24L28 20L32 8Z" stroke="#8c7060" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="32" cy="32" r="20" stroke="#8c7060" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+                            <path d="M32 16V24M32 40V48M16 32H24M40 32H48" stroke="#8c7060" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Jasné cíle</h3>
+                    <p>Objevíš, co skutečně chceš a vytvoříš plán, jak toho dosáhnout bez zbytečného stresu.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 32C20 25.4 25.4 20 32 20C38.6 20 44 25.4 44 32" stroke="#8c7060" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M24 36L28 40L36 32" stroke="#8c7060" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 44C16 44 20 40 32 40C44 40 48 44 48 44" stroke="#8c7060" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="32" cy="32" r="24" stroke="#8c7060" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/>
+                        </svg>
+                    </div>
+                    <h3>Pevné sebevědomí</h3>
+                    <p>Naučíš se věřit si, překonávat pochybnosti a odvážně kráčet za svými sny.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32 12L28 28L12 32L28 36L32 52L36 36L52 32L36 28L32 12Z" stroke="#8c7060" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="16" cy="16" r="4" stroke="#8c7060" stroke-width="2"/>
+                            <circle cx="48" cy="48" r="4" stroke="#8c7060" stroke-width="2"/>
+                            <path d="M20 44C20 44 24 40 32 40C40 40 44 44 44 44" stroke="#8c7060" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Rovnováhu v životě</h3>
+                    <p>Najdeš harmonii mezi kariérou, vztahy a osobním růstem bez pocitu přetížení.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32 8C32 8 24 16 24 24C24 28.4 27.6 32 32 32C36.4 32 40 28.4 40 24C40 16 32 8 32 8Z" stroke="#8c7060" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 36L26 42L32 36L38 42L44 36" stroke="#8c7060" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="20" cy="48" r="3" stroke="#8c7060" stroke-width="2"/>
+                            <circle cx="32" cy="52" r="3" stroke="#8c7060" stroke-width="2"/>
+                            <circle cx="44" cy="48" r="3" stroke="#8c7060" stroke-width="2"/>
+                            <path d="M12 28C12 28 16 32 20 32M44 32C48 32 52 28 52 28" stroke="#8c7060" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Autentický život</h3>
+                    <p>Budeš žít podle svých hodnot a přestat se přizpůsobovat očekáváním ostatních.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="o-me" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-subtitle">O mě</p>
+                    <h2 class="about-title">Ahoj, já jsem Bára</h2>
+                    <div class="about-description">
+                        <p>Nejsem koučka, která ti bude říkat, že „všechno je v hlavě" a stačí se jen správně naladit. Věřím na práci s realitou – s tím, kde právě jsi, co řešíš a co ti teď dává smysl změnit.</p>
+                        
+                        <p>Ke koučování jsem se dostala postupně. Ne skrze jeden zlomový moment, ale skrze roky práce s lidmi, jejich rozhodnutími, nejistotami a otázkami, na které často neexistuje rychlá odpověď. Naučila jsem se ptát se jinak. Jít pod povrch. A hlavně – netlačit na změnu dřív, než na ni je prostor.</p>
+                        
+                        <p>V koučování vytvářím bezpečný, klidný prostor, kde nemusíš nic dokazovat. Můžeš přemýšlet nahlas, zpochybňovat své vlastní vzorce a hledat řešení, která jsou opravdu tvoje – ne převzatá od okolí nebo z internetu.</p>
+                        
+                        <div class="about-list">
+                            <p><strong>Pracuji s lidmi, kteří:</strong></p>
+                            <ul>
+                                <li>mají pocit, že „něco nefunguje", ale neumí to ještě pojmenovat</li>
+                                <li>stojí na křižovatce a potřebují si ujasnit další krok</li>
+                                <li>chtějí změnu, ale ne za cenu tlaku a vyhoření</li>
+                            </ul>
+                        </div>
+                        
+                        <p>Nečekej ode mě hotové rady. Čekej otázky, které ti pomůžou vidět věci jasněji. Strukturu tam, kde je chaos. A podporu tam, kde si ji běžně nedovolíš.</p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="image.jpg" alt="Bára - Osobní kouč" class="about-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="jak-to-funguje" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Jak to funguje</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="40" cy="35" r="12" stroke="#8c7060" stroke-width="2.5"/>
+                            <path d="M28 40C28 40 32 45 40 45C48 45 52 40 52 40" stroke="#8c7060" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="35" cy="32" r="2.5" fill="#8c7060"/>
+                            <circle cx="45" cy="32" r="2.5" fill="#8c7060"/>
+                            <path d="M25 55C25 50 30 48 40 48C50 48 55 50 55 55L55 68C55 70 53 72 51 72L29 72C27 72 25 70 25 68L25 55Z" stroke="#8c7060" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M30 58L35 63M45 63L50 58" stroke="#8c7060" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="40" cy="40" r="32" stroke="#8c7060" stroke-width="2" stroke-dasharray="4 4" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <h3>Úvodní konzultace</h3>
+                    <p>Seznámíme se a proberu tvou aktuální situaci, cíle a to, co tě brzdí v jejich dosažení.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 50L30 38L40 45L50 32L60 40" stroke="#8c7060" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="30" cy="38" r="3" fill="#8c7060"/>
+                            <circle cx="40" cy="45" r="3" fill="#8c7060"/>
+                            <circle cx="50" cy="32" r="3" fill="#8c7060"/>
+                            <circle cx="60" cy="40" r="3" fill="#8c7060"/>
+                            <path d="M15 25L15 60L65 60" stroke="#8c7060" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M55 22L60 28L65 22" stroke="#8c7060" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="40" cy="40" r="32" stroke="#8c7060" stroke-width="2" stroke-dasharray="4 4" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <h3>Vytvoření plánu</h3>
+                    <p>Společně vytvoříme personalizovaný plán s konkrétními kroky a milníky na cestě k tvé transformaci.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="40" cy="40" r="20" stroke="#8c7060" stroke-width="2.5"/>
+                            <path d="M40 25V40L50 45" stroke="#8c7060" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="40" cy="15" r="2" fill="#8c7060"/>
+                            <circle cx="40" cy="65" r="2" fill="#8c7060"/>
+                            <circle cx="15" cy="40" r="2" fill="#8c7060"/>
+                            <circle cx="65" cy="40" r="2" fill="#8c7060"/>
+                            <path d="M55 25C55 25 58 22 62 22M25 55C25 55 22 58 18 58M55 55C55 55 58 58 62 58M25 25C25 25 22 22 18 22" stroke="#8c7060" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="40" cy="40" r="32" stroke="#8c7060" stroke-width="2" stroke-dasharray="4 4" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <h3>Pravidelné sezení</h3>
+                    <p>Budeme se pravidelně setkávat, sledovat pokrok a přizpůsobovat strategii tak, aby fungovala pro tebe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Spokojenost mých klientů</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-quote">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 25C10 25 8 20 8 16C8 12 10 8 15 8C18 8 20 10 20 13C20 16 18 18 15 18C13 18 12 17 12 17C12 17 12 20 15 23C17 25 19 25 19 25" stroke="#8c7060" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M25 25C25 25 23 20 23 16C23 12 25 8 30 8C33 8 35 10 35 13C35 16 33 18 30 18C28 18 27 17 27 17C27 17 27 20 30 23C32 25 34 25 34 25" stroke="#8c7060" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">Bára mi pomohla najít odvahu ke změně kariéry, kterou jsem odkládala roky. Její klidný přístup a správné otázky mě dovedli k tomu, že jsem konečně začala dělat to, co mě baví. Není to kouzelná hůlka, ale prostor, kde můžeš konečně slyšet sama sebe.</p>
+                    <div class="testimonial-author">
+                        <p class="author-name">Petra M.</p>
+                        <p class="author-role">Marketing manažerka</p>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-quote">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 25C10 25 8 20 8 16C8 12 10 8 15 8C18 8 20 10 20 13C20 16 18 18 15 18C13 18 12 17 12 17C12 17 12 20 15 23C17 25 19 25 19 25" stroke="#8c7060" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M25 25C25 25 23 20 23 16C23 12 25 8 30 8C33 8 35 10 35 13C35 16 33 18 30 18C28 18 27 17 27 17C27 17 27 20 30 23C32 25 34 25 34 25" stroke="#8c7060" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">Nejvíc si cením toho, že Bára neposkytuje rychlá řešení. Naučila mě pracovat s nejistotou a rozhodovat se i bez záruky úspěchu. Dnes mám mnohem větší důvěru ve své schopnosti a umím si lépe nastavit hranice.</p>
+                    <div class="testimonial-author">
+                        <p class="author-name">Jana K.</p>
+                        <p class="author-role">HR specialistka</p>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-quote">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 25C10 25 8 20 8 16C8 12 10 8 15 8C18 8 20 10 20 13C20 16 18 18 15 18C13 18 12 17 12 17C12 17 12 20 15 23C17 25 19 25 19 25" stroke="#8c7060" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M25 25C25 25 23 20 23 16C23 12 25 8 30 8C33 8 35 10 35 13C35 16 33 18 30 18C28 18 27 17 27 17C27 17 27 20 30 23C32 25 34 25 34 25" stroke="#8c7060" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">Přišla jsem s pocitem, že se motám v kruhu a nevím, co dál. Spolupráce s Bárou mi pomohla ujasnit si priority a najít směr, který je opravdu můj – ne ten, který ode mě čekají ostatní. Cítím se konečně v souladu sama se sebou.</p>
+                    <div class="testimonial-author">
+                        <p class="author-name">Lucie S.</p>
+                        <p class="author-role">Grafická designérka</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" class="contact">
+        <div class="container">
+            <h2 class="section-title">Pojďme začít</h2>
+            <div class="contact-form">
+                <div id="successMessage" class="success-message">
+                    ✓ Děkuji za zprávu! Ozvu se ti do 24 hodin.
+                </div>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Jméno</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Zpráva</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Odeslat zprávu</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-contact">
+                    <h4>Kontakt</h4>
+                    <p><a href="mailto:info@zivotpodletebe.cz">info@zivotpodletebe.cz</a></p>
+                    <p><a href="tel:+420123456789">+420 123 456 789</a></p>
+                </div>
+                <div class="footer-section footer-social">
+                    <h4>Sleduj mě</h4>
+                    <div class="social-icons">
+                        <a href="#instagram" aria-label="Instagram">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="4" width="24" height="24" rx="6" stroke="#8c7060" stroke-width="2"/>
+                                <circle cx="16" cy="16" r="5" stroke="#8c7060" stroke-width="2"/>
+                                <circle cx="23" cy="9" r="1.5" fill="#8c7060"/>
+                            </svg>
+                        </a>
+                        <a href="#linkedin" aria-label="LinkedIn">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="4" width="24" height="24" rx="4" stroke="#8c7060" stroke-width="2"/>
+                                <circle cx="11" cy="11" r="2" fill="#8c7060"/>
+                                <path d="M9 15V23M15 23V18C15 16 16 15 18 15C20 15 21 16 21 18V23" stroke="#8c7060" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a href="#facebook" aria-label="Facebook">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="4" width="24" height="24" rx="6" stroke="#8c7060" stroke-width="2"/>
+                                <path d="M18 12H20V8H18C15.8 8 14 9.8 14 12V14H12V18H14V28H18V18H20L21 14H18V12Z" stroke="#8c7060" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Život Podle Tebe. Všechna práva vyhrazena.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+        });
+
+        // Header background on scroll
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
